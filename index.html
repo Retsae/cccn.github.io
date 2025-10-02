@@ -507,6 +507,50 @@
             text-align: center;
             margin-top: 20px;
         }
+        /* Add these styles to fix the mobile menu issue */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+        
+        .hamburger-menu span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--text-color);
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .logo-nav-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+        }
 
 
     </style>
@@ -515,7 +559,14 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">Cyd's <span>Creature</span> Care</div>
+                <div class="logo-nav-wrapper">
+                    <div class="logo">Cyd's <span>Creature</span> Care</div>
+                    <div class="hamburger-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
                 <nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
@@ -529,6 +580,7 @@
             </div>
         </div>
     </header>
+
 
     <section class="hero" id="home">
         <div class="container">
