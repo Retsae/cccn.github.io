@@ -307,6 +307,47 @@
                 font-size: 2rem;
             }
         }
+         /* Add these styles to your existing CSS */
+        .tabs {
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .tab-button {
+            background-color: #f1f1f1;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+            border-radius: 30px;
+        }
+        
+        .tab-button.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tab-content {
+            position: relative;
+            min-height: 400px;
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -401,20 +442,26 @@
             </div>
         </div>
     </section>
-    <section class="forms" id="quote">
+    <section class="forms" id="quote-booking">
         <div class="container">
-            <h2>Request a Quote</h2>
-            <div class="form-container"></div>
-                <script type="text/javascript" src="https://form.jotform.com/jsform/252743339603357"></script>
-            </div>
-        </div>
-    </section>
-
-    <section class="forms" id="booking">
-        <div class="container">
-            <h2>Book an Appointment</h2>
-            <div class="form-container">
-                <script type="text/javascript" src="https://form.jotform.com/jsform/252743440838057"></script>
+            <h2>Schedule with Us</h2>
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="quote">Request a Quote</button>
+                    <button class="tab-button" data-tab="booking">Book an Appointment</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="quote">
+                        <div class="form-container">
+                            <script type="text/javascript" src="https://form.jotform.com/jsform/252743339603357"></script>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="booking">
+                        <div class="form-container">
+                            <script type="text/javascript" src="https://form.jotform.com/jsform/252743440838057"></script>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -465,4 +512,24 @@
         </div>
     </footer>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons and panes
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Show corresponding pane
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    });
+</script>
 </html>
