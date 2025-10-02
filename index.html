@@ -4,26 +4,350 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyd's Creature Care - Pet Drop-In & Nutrition Services</title>
-    <!-- CSS remains unchanged -->
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --accent-color: #f1c40f;
+        }
+        
+        /* Rest of the CSS remains unchanged */
+        /* CSS styles preserved from original */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1548767797-d8c844163c4c');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #3d8b40;
+        }
+        
+        .btn.secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn.secondary:hover {
+            background-color: #2980b9;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+        
+        .services {
+            background-color: var(--light-bg);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .testimonials {
+            background-color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .forms {
+            background-color: var(--light-bg);
+        }
+        
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">Cyd's <span>Creature</span> Care</div>
-                <!-- Navigation remains unchanged -->
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#quote">Get a Quote</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
-    <!-- Main content sections remain unchanged -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional Pet Care & Nutrition Services</h1>
+                <p>Your trusted partner for pet drop-in visits and expert animal nutrition advice. We care for your pets like they're our own.</p>
+                <a href="#quote" class="btn">Request a Quote</a>
+                <a href="#booking" class="btn secondary">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1560743641-3914f2c45636');"></div>
+                    <div class="service-content"></div>
+                        <h3>Pet Drop-In Visits</h3>
+                        <p>We offer professional pet sitting and drop-in services to ensure your pet feels loved and cared for when you can't be there. Our services include feeding, walking, medication administration, and plenty of playtime.</p>
+                    </div>
+                </div>
+                <div class="service-card"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf');"></div>
+                    <div class="service-content">
+                        <h3>Animal Nutrition Consulting</h3>
+                        <p>Our certified animal nutritionists provide expert guidance on dietary needs specific to your pet. We create customized nutrition plans to address health concerns, allergies, weight management, and overall wellness.</p>
+                    </div>
+                </div>
+                <div class="service-card"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee');"></div>
+                    <div class="service-content">
+                        <h3>Emergency Pet Care</h3>
+                        <p>Need last-minute pet care? We've got you covered. Our flexible emergency pet care services ensure your furry friends are never left alone, even when unexpected situations arise.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="about" id="about">
         <div class="container">
             <h2>About Us</h2>
-            <div class="about-content">
+            <div class="about-content"></div>
                 <p>Cyd's Creature Care was founded with a simple mission: to provide loving, professional care for pets while offering expert nutrition guidance to pet owners. Our team consists of certified animal care specialists and nutritionists who are passionate about animal health and wellbeing.</p>
-                <!-- Rest of about section unchanged -->
+                <p>We believe that proper nutrition and regular care are the foundations of a happy, healthy pet. Our services are designed to support busy pet owners who want the very best for their furry family members.</p>
+                <p>Whether you need someone to check in on your pets while you're at work, or you're looking for specialized nutrition advice, we're here to help with compassion and expertise.</p>
             </div>
         </div>
     </section>
@@ -32,41 +356,78 @@
         <div class="container">
             <h2>What Our Clients Say</h2>
             <div class="testimonial-grid">
-                <div class="testimonial-card">
+                <div class="testimonial-card"></div>
                     <p class="testimonial-text">"The team at Cyd's Creature Care has been a lifesaver! Their drop-in visits keep my dog happy when I'm at work, and their nutrition advice has helped resolve my cat's digestive issues."</p>
                     <p class="testimonial-author">- Sarah J.</p>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card"></div>
                     <p class="testimonial-text">"I was amazed at how much healthier my senior dog became after following the nutrition plan from Cyd's Creature Care. Their knowledge and compassion are unmatched!"</p>
                     <p class="testimonial-author">- Michael T.</p>
                 </div>
-                <!-- Third testimonial unchanged -->
+                <div class="testimonial-card"></div>
+                    <p class="testimonial-text">"When I travel for work, I know my pets are in great hands. The detailed updates and photos I receive during each visit give me such peace of mind."</p>
+                    <p class="testimonial-author">- Amelia R.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Forms sections unchanged -->
+    <section class="forms" id="quote">
+        <div class="container">
+            <h2>Request a Quote</h2>
+            <div class="form-container"></div>
+                <script type="text/javascript" src="https://form.jotform.com/jsform/252743339603357"></script>
+            </div>
+        </div>
+    </section>
+
+    <section class="forms" id="booking">
+        <div class="container">
+            <h2>Book an Appointment</h2>
+            <div class="form-container">
+                <script type="text/javascript" src="https://form.jotform.com/jsform/252743440838057"></script>
+            </div>
+        </div>
+    </section>
 
     <section class="contact" id="contact">
         <div class="container">
             <h2>Contact Us</h2>
             <div class="contact-info">
                 <p><strong>Email:</strong> info@cydsccreaturecare.com</p>
-                <!-- Rest of contact info unchanged -->
+                <p><strong>Phone:</strong> (555) 123-4567</p>
+                <p><strong>Hours:</strong> Monday-Friday: 8am-7pm, Saturday: 9am-5pm, Sunday: Closed</p>
+                <p>For emergencies outside regular hours, please call our emergency line: (555) 987-6543</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
+        <div class="container"></div>
             <div class="footer-content">
-                <div class="footer-column">
+                <div class="footer-column"></div>
                     <h3>Cyd's Creature Care</h3>
                     <p>Professional pet drop-in services and animal nutrition consulting for your beloved companions.</p>
                 </div>
-                <!-- Rest of footer unchanged -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#quote">Get a Quote</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="copyright">
+            <div class="copyright"></div>
                 <p>&copy; 2023 Cyd's Creature Care. All rights reserved.</p>
             </div>
         </div>
